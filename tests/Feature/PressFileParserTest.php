@@ -39,4 +39,12 @@ class PressFileParserTest extends TestCase
 
         $this->assertEquals('Description here', $this->data['description']);
     }
+
+    /**
+     * @test
+     */
+    public function the_body_gets_saved_and_trimmed()
+    {
+        $this->assertEquals('#Heading\n\nBlog post body here', $this->data['body']);
+    }
 }
