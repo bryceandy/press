@@ -1,0 +1,15 @@
+{
+    "name": "bryceandy/press",
+    "description": "A markdown blog for Laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "bryceandy",
+            "email": "hello@bryceandy.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "orchestra/testbench": "^5.2"
+    }
+}
