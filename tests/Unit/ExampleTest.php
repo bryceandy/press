@@ -1,6 +1,6 @@
 <?php
 
-namespace Bryceandy\Press\Test;
+namespace Bryceandy\Press\Tests;
 
 use Orchestra\Testbench\TestCase;
 
