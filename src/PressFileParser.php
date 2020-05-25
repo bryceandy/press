@@ -43,5 +43,7 @@ class PressFileParser
 
             $this->data[$fieldArray[1]] = $fieldArray[2];
         }
+
+        $this->data['body'] = trim($this->data[2]);
     }
 }
