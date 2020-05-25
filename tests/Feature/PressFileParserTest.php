@@ -7,18 +7,27 @@ use Orchestra\Testbench\TestCase;
 
 class PressFileParserTest extends TestCase
 {
+    protected Array $data;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $pressFileParser = (new PressFileParser(__DIR__.'/../blogs/MarkFile1.md'));
+
+        $this->data = $pressFileParser->getData();
+    }
+
     /**
      * @test
      */
     public function the_head_and_body_gets_split()
     {
-        $pressFileParser = (new PressFileParser(__DIR__.'/../blogs/MarkFile1.md'));
+        $this->assertStringContainsString('title: My title', $this->data[1]);
 
-        $data = $pressFileParser->getData();
-
-        $this->assertStringContainsString('title: My title', $data[1]);
-        $this->assertStringContainsString('description: Description here', $data[1]);
-        $this->assertStringContainsString('Blog post body here', $data[2]);
+        $this->assertStringContainsString('description: Description here', $this->data[1]);
+        
+        $this->assertStringContainsString('Blog post body here', $this->data[2]);
     }
 
     /**
@@ -26,11 +35,8 @@ class PressFileParserTest extends TestCase
      */
     public function each_head_field_gets_separated()
     {
-        $pressFileParser = (new PressFileParser(__DIR__.'/../blogs/MarkFile1.md'));
+        $this->assertEquals('My title', $this->data['title']);
 
-        $data = $pressFileParser->getData();
-
-        $this->assertEquals('My title', $data['title']);
-        $this->assertEquals('Description here', $data['description']);
+        $this->assertEquals('Description here', $this->data['description']);
     }
 }
