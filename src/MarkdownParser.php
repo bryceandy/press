@@ -7,7 +7,7 @@ use Parsedown;
 class MarkdownParser
 {
     /**
-     * Creates a markdown parser
+     * Creates a text parser
      *
      * @param String $string
      * @return string
