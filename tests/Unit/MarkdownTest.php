@@ -2,6 +2,7 @@
 
 namespace Bryceandy\Press\Tests;
 
+use Bryceandy\Press\MarkdownParser;
 use Orchestra\Testbench\TestCase;
 
 class MarkdownTest extends TestCase
