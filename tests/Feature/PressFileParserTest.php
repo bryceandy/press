@@ -1,10 +1,10 @@
 <?php
 
-namespace Bryceandy\Press\Tests;
+namespace Bryceandy\Press\Tests\Feature;
 
 use Bryceandy\Press\PressFileParser;
+use Bryceandy\Press\Tests\TestCase;
 use Carbon\Carbon;
-use Orchestra\Testbench\TestCase;
 
 class PressFileParserTest extends TestCase
 {

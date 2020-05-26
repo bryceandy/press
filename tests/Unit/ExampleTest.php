@@ -1,8 +1,8 @@
 <?php
 
-namespace Bryceandy\Press\Tests;
+namespace Bryceandy\Press\Tests\Unit;
 
-use Orchestra\Testbench\TestCase;
+use Bryceandy\Press\Tests\TestCase;
 
 class ExampleTest extends TestCase
 {

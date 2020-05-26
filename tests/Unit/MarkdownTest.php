@@ -1,9 +1,9 @@
 <?php
 
-namespace Bryceandy\Press\Tests;
+namespace Bryceandy\Press\Tests\Unit;
 
 use Bryceandy\Press\MarkdownParser;
-use Orchestra\Testbench\TestCase;
+use Bryceandy\Press\Tests\TestCase;
 
 class MarkdownTest extends TestCase
 {
