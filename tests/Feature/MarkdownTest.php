@@ -1,6 +1,6 @@
 <?php
 
-namespace Bryceandy\Press\Tests\Unit;
+namespace Bryceandy\Press\Tests\Feature;
 
 use Bryceandy\Press\MarkdownParser;
 use Bryceandy\Press\Tests\TestCase;
