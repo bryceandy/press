@@ -6,11 +6,11 @@ use Illuminate\Support\Facades\File;
 
 class PressFileParser
 {
-    protected String $filename;
+    protected string $filename;
 
-    protected Array $data;
+    protected array $data;
 
-    protected Array $rawData;
+    protected array $rawData;
 
     public function __construct($filename)
     {

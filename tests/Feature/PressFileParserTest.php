@@ -8,7 +8,7 @@ use Orchestra\Testbench\TestCase;
 
 class PressFileParserTest extends TestCase
 {
-    protected Array $data;
+    private array $data;
 
     private PressFileParser $pressFileParser;
 
@@ -25,7 +25,6 @@ class PressFileParserTest extends TestCase
 
         $this->pressFileParser = (new PressFileParser($contentToBeParsed[$randomIndex]));
 
-        /** @noinspection PhpFieldAssignmentTypeMismatchInspection */
         $this->data = $this->pressFileParser->getData();
     }
 

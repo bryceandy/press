@@ -9,10 +9,11 @@ class MarkdownParser
     /**
      * Creates a text parser
      *
-     * @param String $string
+     * @param string $string
+     *
      * @return string
      */
-    public static function parse(String $string)
+    public static function parse(string $string)
     {
         return Parsedown::instance()->text($string);
     }
