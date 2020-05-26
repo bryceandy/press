@@ -88,4 +88,23 @@ class PressFileParserTest extends TestCase
 
         $this->assertEquals(json_encode(['author' => 'John Doe']), $data['extra']);
     }
+
+    /**
+     * @test
+     */
+    public function additional_fields_are_saved_into_extra()
+    {
+        $pressFileParser = (new PressFileParser(
+            "---\nauthor: Jane Doe\nbook: Marvelous Nakamba\n---\n"
+        ));
+
+        $data = $pressFileParser->getData();
+
+        $this->assertEquals(json_encode([
+            'author' => 'Jane Doe',
+            'book' => 'Marvelous Nakamba'
+            ]),
+            $data['extra']
+        );
+    }
 }

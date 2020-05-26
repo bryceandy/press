@@ -66,7 +66,7 @@ class PressFileParser
 
             $this->data = array_merge(
                 (array)$this->data,
-                $class::process($field, $value)
+                $class::process($field, $value, $this->data)
             );
         }
     }
