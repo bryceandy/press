@@ -1,6 +1,6 @@
 <?php
 
-namespace Bryceandy\Press\Fields\Contracts;
+namespace Bryceandy\Press\Contracts;
 
 abstract class FieldContract
 {

@@ -2,7 +2,7 @@
 
 namespace Bryceandy\Press\Fields;
 
-use Bryceandy\Press\Fields\Contracts\FieldContract;
+use Bryceandy\Press\Contracts\FieldContract;
 use Bryceandy\Press\MarkdownParser;
 
 class Body extends FieldContract
