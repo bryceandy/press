@@ -45,6 +45,6 @@ class PressFileParserTest extends TestCase
      */
     public function the_body_gets_saved_and_trimmed()
     {
-        $this->assertEquals('#Heading\n\nBlog post body here', $this->data['body']);
+        $this->assertEquals('# Heading\n\nBlog post body here', $this->data['body']);
     }
 }
