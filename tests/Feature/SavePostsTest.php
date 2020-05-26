@@ -13,7 +13,7 @@ class SavePostsTest extends TestCase
     /**
      * @test
      */
-    public function a_post_can_be_created_with_a_factory()
+    public function a_post_can_be_created_with_the_factory()
     {
         factory(Post::class)->create();
 
