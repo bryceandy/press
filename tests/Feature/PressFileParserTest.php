@@ -66,5 +66,6 @@ class PressFileParserTest extends TestCase
         $data = $pressFileParser->getData();
 
         $this->assertInstanceOf(Carbon::class, $data['date']);
+        $this->assertEquals('11/15/1993', $data['date']->format('m/d/Y'));
     }
 }
