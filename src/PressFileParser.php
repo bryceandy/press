@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\File;
 
 class PressFileParser
 {
-
     protected String $filename;
 
     protected Array $data;
