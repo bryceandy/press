@@ -33,6 +33,19 @@ class PressFileParserTest extends TestCase
     /**
      * @test
      */
+    public function a_string_can_also_be_used_instead()
+    {
+        $pressFileParser = (new PressFileParser(
+            "---\ntitle: My title\ndescription: Description here\n---\n\n# Heading\n\nBlog post body here"
+        ));
+
+        $data = $pressFileParser->getData();
+        $this->assertStringContainsString('title: My title', $data[1]);
+    }
+
+    /**
+     * @test
+     */
     public function each_head_field_gets_separated()
     {
         $this->assertEquals('My title', $this->data['title']);
