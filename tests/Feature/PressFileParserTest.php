@@ -76,4 +76,16 @@ class PressFileParserTest extends TestCase
         $this->assertInstanceOf(Carbon::class, $data['date']);
         $this->assertEquals('11/15/1993', $data['date']->format('m/d/Y'));
     }
+
+    /**
+     * @test
+     */
+    public function an_extra_field_gets_saved()
+    {
+        $pressFileParser = (new PressFileParser("---\nauthor: John Doe\n---\n"));
+
+        $data = $pressFileParser->getData();
+
+        $this->assertEquals(json_encode(['author' => 'John Doe']), $data['extra']);
+    }
 }

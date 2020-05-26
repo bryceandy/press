@@ -61,12 +61,13 @@ class PressFileParser
 
             $class = 'Bryceandy\\Press\\Fields\\'. ucfirst($field);
 
-            if (class_exists($class) && method_exists($class, 'process')) {
-                $this->data = array_merge(
-                    (array)$this->data,
-                    $class::process($field, $value)
-                );
-            }
+            if (! class_exists($class) && ! method_exists($class, 'process'))
+                $class = 'Bryceandy\\Press\\Fields\\Extra';
+
+            $this->data = array_merge(
+                (array)$this->data,
+                $class::process($field, $value)
+            );
         }
     }
 }
