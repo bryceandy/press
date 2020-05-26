@@ -24,5 +24,12 @@
         "psr-4": {
             "Bryceandy\\Press\\Tests\\": "tests/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Bryceandy\\Press\\PressBaseServiceProvider"
+            ]
+        }
     }
 }
