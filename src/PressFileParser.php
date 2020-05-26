@@ -2,6 +2,7 @@
 
 namespace Bryceandy\Press;
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\File;
 
 class PressFileParser
@@ -17,6 +18,8 @@ class PressFileParser
         $this->data = $this->splitFile();
 
         $this->explodeData();
+
+        $this->processFields();
     }
 
     public function getData()
@@ -44,5 +47,14 @@ class PressFileParser
         }
 
         $this->data['body'] = preg_replace('/\R/','\n', trim($this->data[2]));
+    }
+
+    protected function processFields()
+    {
+        foreach ($this->data as $field => $value) {
+            if ($field === 'date') {
+                $this->data[$field] = Carbon::parse($value);
+            }
+        }
     }
 }
