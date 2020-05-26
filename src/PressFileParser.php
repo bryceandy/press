@@ -46,7 +46,7 @@ class PressFileParser
             $this->data[$fieldArray[1]] = $fieldArray[2];
         }
 
-        $this->data['body'] = preg_replace('/\R/','\n', trim($this->data[2]));
+        $this->data['body'] = trim($this->data[2]);
     }
 
     protected function processFields()
@@ -54,6 +54,8 @@ class PressFileParser
         foreach ($this->data as $field => $value) {
             if ($field === 'date') {
                 $this->data[$field] = Carbon::parse($value);
+            } else if ($field === 'body') {
+                $this->data[$field] = MarkdownParser::parse($value);
             }
         }
     }

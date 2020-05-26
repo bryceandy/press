@@ -51,9 +51,12 @@ class PressFileParserTest extends TestCase
     /**
      * @test
      */
-    public function the_body_gets_saved_and_trimmed()
+    public function the_body_gets_parsed_and_trimmed()
     {
-        $this->assertEquals('# Heading\n\nBlog post body here', $this->data['body']);
+        $this->assertEquals(
+            '<h1>Heading</h1>\n<p>Blog post body here</p>',
+            preg_replace('/\R/', '\n', $this->data['body']) //Temp fix
+        );
     }
 
     /**
