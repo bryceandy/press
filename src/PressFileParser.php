@@ -10,15 +10,22 @@ class PressFileParser
 
     protected Array $data;
 
+    protected Array $rawData;
+
     public function __construct($filename)
     {
         $this->filename = $filename;
 
-        $this->data = $this->splitFile();
+        $this->rawData = $this->splitFile();
 
         $this->explodeData();
 
         $this->processFields();
+    }
+
+    public function getRawData()
+    {
+        return $this->rawData;
     }
 
     public function getData()
@@ -38,14 +45,14 @@ class PressFileParser
 
     protected function explodeData()
     {
-        foreach (explode("\n", trim($this->data[1])) as $fieldString) {
+        foreach (explode("\n", trim($this->rawData[1])) as $fieldString) {
 
             preg_match('/(.*):\s?(.*)/', $fieldString, $fieldArray);
 
             $this->data[$fieldArray[1]] = $fieldArray[2];
         }
 
-        $this->data['body'] = trim($this->data[2]);
+        $this->data['body'] = trim($this->rawData[2]);
     }
 
     protected function processFields()
@@ -56,7 +63,7 @@ class PressFileParser
 
             if (class_exists($class) && method_exists($class, 'process')) {
                 $this->data = array_merge(
-                    $this->data,
+                    (array)$this->data,
                     $class::process($field, $value)
                 );
             }

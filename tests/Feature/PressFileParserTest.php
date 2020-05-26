@@ -10,6 +10,8 @@ class PressFileParserTest extends TestCase
 {
     protected Array $data;
 
+    private PressFileParser $pressFileParser;
+
     public function setUp(): void
     {
         parent::setUp();
@@ -21,9 +23,10 @@ class PressFileParserTest extends TestCase
 
         $randomIndex = array_rand($contentToBeParsed);
 
-        $pressFileParser = (new PressFileParser($contentToBeParsed[$randomIndex]));
+        $this->pressFileParser = (new PressFileParser($contentToBeParsed[$randomIndex]));
 
-        $this->data = $pressFileParser->getData();
+        /** @noinspection PhpFieldAssignmentTypeMismatchInspection */
+        $this->data = $this->pressFileParser->getData();
     }
 
     /**
@@ -31,11 +34,13 @@ class PressFileParserTest extends TestCase
      */
     public function the_head_and_body_gets_split()
     {
-        $this->assertStringContainsString('title: My title', $this->data[1]);
+        $data = $this->pressFileParser->getRawData();
 
-        $this->assertStringContainsString('description: Description here', $this->data[1]);
+        $this->assertStringContainsString('title: My title', $data[1]);
+
+        $this->assertStringContainsString('description: Description here', $data[1]);
         
-        $this->assertStringContainsString('Blog post body here', $this->data[2]);
+        $this->assertStringContainsString('Blog post body here', $data[2]);
     }
 
     /**
