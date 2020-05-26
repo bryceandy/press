@@ -2,9 +2,10 @@
 
 namespace Bryceandy\Press\Fields;
 
+use Bryceandy\Press\Fields\Contracts\FieldContract;
 use Bryceandy\Press\MarkdownParser;
 
-class Body
+class Body extends FieldContract
 {
     public static function process($field, $value, $data)
     {

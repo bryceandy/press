@@ -2,9 +2,10 @@
 
 namespace Bryceandy\Press\Fields;
 
+use Bryceandy\Press\Fields\Contracts\FieldContract;
 use Carbon\Carbon;
 
-class Date
+class Date extends FieldContract
 {
     public static function process($field, $value, $data)
     {

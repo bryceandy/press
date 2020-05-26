@@ -2,7 +2,9 @@
 
 namespace Bryceandy\Press\Fields;
 
-class Extra
+use Bryceandy\Press\Fields\Contracts\FieldContract;
+
+class Extra extends FieldContract
 {
     public static function process($field, $value, $data)
     {
