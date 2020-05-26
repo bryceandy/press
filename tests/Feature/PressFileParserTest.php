@@ -3,6 +3,7 @@
 namespace Bryceandy\Press\Tests;
 
 use Bryceandy\Press\PressFileParser;
+use Carbon\Carbon;
 use Orchestra\Testbench\TestCase;
 
 class PressFileParserTest extends TestCase
@@ -53,5 +54,17 @@ class PressFileParserTest extends TestCase
     public function the_body_gets_saved_and_trimmed()
     {
         $this->assertEquals('# Heading\n\nBlog post body here', $this->data['body']);
+    }
+
+    /**
+     * @test
+     */
+    public function a_date_field_gets_parsed()
+    {
+        $pressFileParser = (new PressFileParser("---\ndate: Nov 15, 1993\n---\n"));
+
+        $data = $pressFileParser->getData();
+
+        $this->assertInstanceOf(Carbon::class, $data['date']);
     }
 }
