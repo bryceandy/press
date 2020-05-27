@@ -3,6 +3,7 @@
 namespace Bryceandy\Press\Console;
 
 use Bryceandy\Press\Post;
+use Bryceandy\Press\Press;
 use Bryceandy\Press\PressFileParser;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -16,7 +17,7 @@ class ProcessCommand extends Command
 
     public function handle()
     {
-        if (is_null(config('press'))) {
+        if (Press::configNotPublished()) {
             $this->warn('Please publish the config file by running'.
                 ' \'php artisan vendor:publish --tag=press-config\'
             ');
