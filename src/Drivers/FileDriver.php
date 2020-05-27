@@ -13,7 +13,7 @@ class FileDriver extends DriverContract
      */
     public function fetchPosts()
     {
-        // Fetch all posts
+        // Fetch all markdown files in the driver
         $files = File::files(config('press.path'));
 
         // Process each file
