@@ -2,11 +2,10 @@
 
 namespace Bryceandy\Press\Console;
 
-use Bryceandy\Press\Post;
 use Bryceandy\Press\Facades\Press;
+use Bryceandy\Press\Repositories\PostRepository;
 use Exception;
 use Illuminate\Console\Command;
-use Illuminate\Support\Str;
 
 class ProcessCommand extends Command
 {
@@ -28,17 +27,11 @@ class ProcessCommand extends Command
         try {
             $posts = Press::driver()->fetchPosts();
 
-            collect($posts)->map( fn($post) => Post::create([
-                'identifier' => $post['identifier'],
-                'slug' => Str::slug($post['title']),
-                'title' => $post['title'],
-                'body' => $post['body'],
-                'extra' => $post['extra'] ?? [],
-            ]));
+            collect($posts)->map( fn($post) => (new PostRepository())->save($post));
 
             $this->info('Posts updated successfully!');
         } catch (Exception $exception) {
-            
+
             $this->error($exception->getMessage());
         }
     }
