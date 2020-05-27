@@ -4,7 +4,6 @@ namespace Bryceandy\Press\Drivers;
 
 use Bryceandy\Press\Contracts\DriverContract;
 use Bryceandy\Press\Exceptions\FileDriverDirectoryNotFoundException;
-use Bryceandy\Press\PressFileParser;
 use Illuminate\Support\Facades\File;
 
 class FileDriver extends DriverContract
