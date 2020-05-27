@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Providers;
+
+use Bryceandy\Press\Facades\Press;
+use Illuminate\Support\ServiceProvider;
+
+class PressServiceProvider extends ServiceProvider
+{
+    public function boot()
+    {
+        $this->registerFields();
+    }
+
+    public function register()
+    {
+        //
+    }
+
+    /**
+     * Put in the additional fields in the array that fit your application needs.
+     * You can also override fields that are already shipped with this package
+     */
+    private function registerFields()
+    {
+        Press::fields([
+            //
+        ]);
+    }
+}
