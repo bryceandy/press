@@ -13,4 +13,13 @@ class Press
     {
         return is_null(config('press'));
     }
+
+    public static function driver()
+    {
+        $driver = ucfirst(config('press.driver'));
+
+        $class = 'Bryceandy\Press\Drivers\\' . $driver . 'Driver';
+
+        return new $class;
+    }
 }

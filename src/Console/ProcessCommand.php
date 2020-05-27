@@ -26,22 +26,15 @@ class ProcessCommand extends Command
         }
         $this->info('Processing posts...');
 
-        // Fetch all posts
-        $files = File::files(config('press.path'));
+        $posts = Press::driver()->fetchPosts();
 
-        // Process each file
-        foreach($files as $file) {
-
-            $post = (new PressFileParser($file->getPathName()))->getData();
-
-            Post::create([
-                'identifier' => Str::random(),
-                'slug' => Str::slug($post['title']),
-                'title' => $post['title'],
-                'body' => $post['body'],
-                'extra' => $post['extra'] ?? [],
-            ]);
-        }
+        collect($posts)->map( fn($post) => Post::create([
+            'identifier' => Str::random(),
+            'slug' => Str::slug($post['title']),
+            'title' => $post['title'],
+            'body' => $post['body'],
+            'extra' => $post['extra'] ?? [],
+        ]));
 
         $this->info('Posts updated successfully!');
     }
