@@ -4,8 +4,8 @@ namespace Bryceandy\Press;
 
 use Illuminate\Support\Facades\File;
 use Bryceandy\Press\Facades\Press;
-use Illuminate\Support\Facades\Log;
 use ReflectionClass;
+use ReflectionException;
 
 class PressFileParser
 {
@@ -78,16 +78,20 @@ class PressFileParser
      * Checks if the appropriate class is available and returns it
      *
      * @param string $field
+     * @return string
+     * @throws ReflectionException
      */
     private function getFieldClass(string $field)
     {
-        collect(Press::getAvailableFields())->map(function($availableField) use ($field) {
+        foreach (Press::getAvailableFields() as $availableField) {
 
             $class = new ReflectionClass($availableField);
 
             if ($class->getShortName() == $field) {
                 return $class->getName();
             }
-        });
+        };
+
+        return null;
     }
 }
