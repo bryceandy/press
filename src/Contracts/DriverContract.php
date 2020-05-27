@@ -30,7 +30,7 @@ abstract class DriverContract
 
     protected function setConfig()
     {
-        $this->config = config('press' . config('press.driver'));
+        $this->config = config('press.' . config('press.driver'));
     }
 
     /**
