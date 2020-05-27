@@ -62,7 +62,7 @@ abstract class DriverContract
 
     /**
      * Fetching posts should be implemented by all drivers
-     * 
+     *
      * @return mixed
      */
     public abstract function fetchPosts();
