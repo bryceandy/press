@@ -13,7 +13,7 @@ class ProcessCommand extends Command
 
     protected $description = 'Updates blog posts';
 
-    public function handle()
+    public function handle(PostRepository $postRepository)
     {
         if (Press::configNotPublished()) {
             $this->warn('Please publish the config file by running'.
@@ -27,7 +27,7 @@ class ProcessCommand extends Command
         try {
             $posts = Press::driver()->fetchPosts();
 
-            collect($posts)->map( fn($post) => (new PostRepository())->save($post));
+            collect($posts)->map( fn($post) => $postRepository->save($post));
 
             $this->info('Posts updated successfully!');
 
