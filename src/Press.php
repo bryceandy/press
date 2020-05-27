@@ -2,6 +2,8 @@
 
 namespace Bryceandy\Press;
 
+use Illuminate\Config\Repository;
+
 class Press
 {
     /**
@@ -14,6 +16,11 @@ class Press
         return is_null(config('press'));
     }
 
+    /**
+     * Select a driver according to the driver chosen
+     *
+     * @return mixed
+     */
     public static function driver()
     {
         $driver = ucfirst(config('press.driver'));
@@ -21,5 +28,15 @@ class Press
         $class = 'Bryceandy\Press\Drivers\\' . $driver . 'Driver';
 
         return new $class;
+    }
+
+    /**
+     * Fetches the path prefix configuration option
+     *
+     * @return Repository|mixed
+     */
+    public static function path()
+    {
+        return config('press.path', 'press');
     }
 }

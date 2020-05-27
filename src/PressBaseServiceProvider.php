@@ -3,6 +3,7 @@
 namespace Bryceandy\Press;
 
 use Bryceandy\Press\Console\ProcessCommand;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class PressBaseServiceProvider extends ServiceProvider
@@ -20,6 +21,7 @@ class PressBaseServiceProvider extends ServiceProvider
         $this->commands([
             ProcessCommand::class,
         ]);
+
     }
 
     private function registerPublishing()
@@ -33,5 +35,14 @@ class PressBaseServiceProvider extends ServiceProvider
     {
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'press');
+
+        $this->registerRoutes();
+    }
+
+    protected function registerRoutes()
+    {
+        Route::group([
+            'prefix' => Press::path(),
+        ], fn() => $this->loadRoutesFrom(__DIR__ . '/../routes/web.php'));
     }
 }
