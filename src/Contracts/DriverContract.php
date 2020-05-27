@@ -59,4 +59,11 @@ abstract class DriverContract
             ['identifier' => Str::slug($identifier)],
         );
     }
+
+    /**
+     * Fetching posts should be implemented by all drivers
+     * 
+     * @return mixed
+     */
+    public abstract function fetchPosts();
 }
