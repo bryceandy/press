@@ -22,7 +22,7 @@ class ProcessCommand extends Command
         $files = File::files('blogs');
 
         // Process each file
-        collect($files)->map(function ($file) {
+        foreach($files as $file) {
 
             $post = (new PressFileParser($file->getPathName()))->getData();
 
@@ -33,7 +33,7 @@ class ProcessCommand extends Command
                 'body' => $post['body'],
                 'extra' => $post['extra'] ?? [],
             ]);
-        });
+        }
 
         $this->info('Posts updated successfully!');
     }
