@@ -22,7 +22,6 @@ class PressBaseServiceProvider extends ServiceProvider
         $this->commands([
             ProcessCommand::class,
         ]);
-
     }
 
     private function registerPublishing()
