@@ -6,6 +6,8 @@ use Illuminate\Config\Repository;
 
 class Press
 {
+    protected array $fields = [];
+
     /**
      * Checks whether the config file is already published
      *
@@ -38,5 +40,24 @@ class Press
     public function path()
     {
         return config('press.path', 'press');
+    }
+
+    /** Merge present fields and the user created fields
+     *
+     * @param array $fields
+     */
+    public function fields(array $fields)
+    {
+        $this->fields = array_merge($this->fields, $fields);
+    }
+
+    /**
+     * Fetch the currently available fields
+     *
+     * @return array
+     */
+    public function getAvailableFields()
+    {
+        return $this->fields;
     }
 }

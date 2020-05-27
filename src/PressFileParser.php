@@ -3,6 +3,9 @@
 namespace Bryceandy\Press;
 
 use Illuminate\Support\Facades\File;
+use Bryceandy\Press\Facades\Press;
+use Illuminate\Support\Facades\Log;
+use ReflectionClass;
 
 class PressFileParser
 {
@@ -59,15 +62,32 @@ class PressFileParser
     {
         foreach ($this->data as $field => $value) {
 
-            $class = 'Bryceandy\\Press\\Fields\\'. ucfirst($field);
+            $class = $this->getFieldClass(ucfirst($field));
 
             if (! class_exists($class) && ! method_exists($class, 'process'))
                 $class = 'Bryceandy\\Press\\Fields\\Extra';
 
             $this->data = array_merge(
-                (array)$this->data,
+                $this->data,
                 $class::process($field, $value, $this->data)
             );
         }
+    }
+
+    /**
+     * Checks if the appropriate class is available and returns it
+     *
+     * @param string $field
+     */
+    private function getFieldClass(string $field)
+    {
+        collect(Press::getAvailableFields())->map(function($availableField) use ($field) {
+
+            $class = new ReflectionClass($availableField);
+
+            if ($class->getShortName() == $field) {
+                return $class->getName();
+            }
+        });
     }
 }

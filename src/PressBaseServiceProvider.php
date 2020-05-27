@@ -39,6 +39,7 @@ class PressBaseServiceProvider extends ServiceProvider
 
         $this->registerFacades();
         $this->registerRoutes();
+        $this->registerFields();
     }
 
     private function registerFacades()
@@ -52,5 +53,16 @@ class PressBaseServiceProvider extends ServiceProvider
             'prefix' => Press::path(),
             'namespace' => 'Bryceandy\Press\Http\Controllers',
         ], fn() => $this->loadRoutesFrom(__DIR__ . '/../routes/web.php'));
+    }
+
+    private function registerFields()
+    {
+        Press::fields([
+            Fields\Title::class,
+            Fields\Body::class,
+            Fields\Date::class,
+            Fields\Description::class,
+            Fields\Extra::class,
+        ]);
     }
 }
