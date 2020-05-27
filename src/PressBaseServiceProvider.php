@@ -43,6 +43,7 @@ class PressBaseServiceProvider extends ServiceProvider
     {
         Route::group([
             'prefix' => Press::path(),
+            'namespace' => 'Bryceandy\Press\Http\Controllers',
         ], fn() => $this->loadRoutesFrom(__DIR__ . '/../routes/web.php'));
     }
 }
