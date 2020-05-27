@@ -2,6 +2,9 @@
 
 namespace Bryceandy\Press\Contracts;
 
+use Bryceandy\Press\PressFileParser;
+use Illuminate\Support\Str;
+
 abstract class DriverContract
 {
     /**
@@ -41,5 +44,19 @@ abstract class DriverContract
     protected function validateSource()
     {
         return true;
+    }
+
+    /**
+     * Parse file
+     *
+     * @param $content
+     * @param $identifier
+     */
+    protected function parse($content, $identifier)
+    {
+        $this->posts[] = array_merge(
+            (new PressFileParser($content))->getData(),
+            ['identifier' => Str::slug($identifier)],
+        );
     }
 }

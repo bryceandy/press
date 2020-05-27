@@ -29,7 +29,7 @@ class ProcessCommand extends Command
         $posts = Press::driver()->fetchPosts();
 
         collect($posts)->map( fn($post) => Post::create([
-            'identifier' => Str::random(),
+            'identifier' => $post['identifier'],
             'slug' => Str::slug($post['title']),
             'title' => $post['title'],
             'body' => $post['body'],

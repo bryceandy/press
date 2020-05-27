@@ -19,7 +19,7 @@ class FileDriver extends DriverContract
 
         // Process each file
         foreach ($files as $file)
-            $this->posts[] = (new PressFileParser($file->getPathName()))->getData();
+            $this->parse($file->getPathName(), $file->getFileName());
 
         return $this->posts;
     }
