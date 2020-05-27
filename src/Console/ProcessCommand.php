@@ -38,6 +38,7 @@ class ProcessCommand extends Command
 
             $this->info('Posts updated successfully!');
         } catch (Exception $exception) {
+            
             $this->error($exception->getMessage());
         }
     }
