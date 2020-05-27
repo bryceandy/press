@@ -3,11 +3,9 @@
 namespace Bryceandy\Press\Console;
 
 use Bryceandy\Press\Post;
-use Bryceandy\Press\Press;
-use Bryceandy\Press\PressFileParser;
+use Bryceandy\Press\Facades\Press;
 use Exception;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
 class ProcessCommand extends Command

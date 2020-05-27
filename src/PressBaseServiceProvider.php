@@ -2,6 +2,7 @@
 
 namespace Bryceandy\Press;
 
+use Bryceandy\Press\Facades\Press;
 use Bryceandy\Press\Console\ProcessCommand;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -36,10 +37,16 @@ class PressBaseServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'press');
 
+        $this->registerFacades();
         $this->registerRoutes();
     }
 
-    protected function registerRoutes()
+    private function registerFacades()
+    {
+        $this->app->singleton('Press', fn($app) => new \Bryceandy\Press\Press());
+    }
+    
+    private function registerRoutes()
     {
         Route::group([
             'prefix' => Press::path(),
