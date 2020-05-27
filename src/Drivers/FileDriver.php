@@ -2,10 +2,11 @@
 
 namespace Bryceandy\Press\Drivers;
 
+use Bryceandy\Press\Contracts\DriverContract;
 use Bryceandy\Press\PressFileParser;
 use Illuminate\Support\Facades\File;
 
-class FileDriver
+class FileDriver extends DriverContract
 {
     /**
      * @return array
@@ -15,11 +16,10 @@ class FileDriver
         // Fetch all posts
         $files = File::files(config('press.path'));
 
-        $posts = [];
         // Process each file
         foreach ($files as $file)
-            $posts[] = (new PressFileParser($file->getPathName()))->getData();
+            $this->posts[] = (new PressFileParser($file->getPathName()))->getData();
 
-        return $posts ?? [];
+        return $this->posts;
     }
 }
