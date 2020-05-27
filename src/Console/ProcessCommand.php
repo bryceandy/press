@@ -17,8 +17,7 @@ class ProcessCommand extends Command
     {
         if (Press::configNotPublished()) {
             $this->warn('Please publish the config file by running'.
-                ' \'php artisan vendor:publish --tag=press-config\'
-            ');
+                ' \'php artisan vendor:publish --tag=press-config\'');
 
             return;
         }
@@ -32,7 +31,6 @@ class ProcessCommand extends Command
             $this->info('Posts updated successfully!');
 
         } catch (Exception $exception) {
-
             $this->error($exception->getMessage());
         }
     }
