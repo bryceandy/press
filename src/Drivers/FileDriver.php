@@ -20,6 +20,6 @@ class FileDriver
         foreach ($files as $file)
             $posts[] = (new PressFileParser($file->getPathName()))->getData();
 
-        return $posts;
+        return $posts ?? [];
     }
 }
