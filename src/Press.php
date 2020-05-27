@@ -58,6 +58,6 @@ class Press
      */
     public function getAvailableFields()
     {
-        return $this->fields;
+        return array_reverse($this->fields);
     }
 }
