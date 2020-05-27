@@ -16,7 +16,7 @@ class PostRepository
             'slug' => Str::slug($post['title']),
             'title' => $post['title'],
             'body' => $post['body'],
-            'extra' => $post['extra'] ?? [],
+            'extra' => $post['extra'] ?? json_encode([]),
         ]);
     }
 }
