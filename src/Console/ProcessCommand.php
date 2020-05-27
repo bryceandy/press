@@ -30,6 +30,7 @@ class ProcessCommand extends Command
             collect($posts)->map( fn($post) => (new PostRepository())->save($post));
 
             $this->info('Posts updated successfully!');
+
         } catch (Exception $exception) {
 
             $this->error($exception->getMessage());
