@@ -37,10 +37,10 @@ class ProcessCommand extends Command
                 'body' => $post['body'],
                 'extra' => $post['extra'] ?? [],
             ]));
+
+            $this->info('Posts updated successfully!');
         } catch (Exception $exception) {
             $this->error($exception->getMessage());
         }
-
-        $this->info('Posts updated successfully!');
     }
 }
