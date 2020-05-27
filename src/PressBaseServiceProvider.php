@@ -9,6 +9,9 @@ class PressBaseServiceProvider extends ServiceProvider
 {
     public function boot()
     {
+        if ($this->app->runningInConsole())
+            $this->registerPublishing();
+
         $this->registerResources();
     }
 
@@ -17,6 +20,13 @@ class PressBaseServiceProvider extends ServiceProvider
         $this->commands([
             ProcessCommand::class,
         ]);
+    }
+
+    private function registerPublishing()
+    {
+        $this->publishes([
+            __DIR__.'/../config/press.php' => config_path('press.php'),
+        ], 'press-config');
     }
 
     private function registerResources()
