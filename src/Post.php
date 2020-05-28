@@ -18,8 +18,9 @@ class Post extends Model
 
     /**
      * Enable a user to select an extra field without decoding
-     * 
-     * @return string|null
+     *
+     * @param $field
+     * @return mixed
      */
     public function extra($field)
     {

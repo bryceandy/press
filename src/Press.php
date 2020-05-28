@@ -6,7 +6,7 @@ use Illuminate\Config\Repository;
 
 class Press
 {
-    protected array $fields = [];
+    protected $fields = [];
 
     /**
      * Checks whether the config file is already published

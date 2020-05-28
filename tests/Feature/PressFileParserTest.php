@@ -8,9 +8,9 @@ use Carbon\Carbon;
 
 class PressFileParserTest extends TestCase
 {
-    private array $data;
+    private $data;
 
-    private PressFileParser $pressFileParser;
+    private $pressFileParser;
 
     public function setUp(): void
     {

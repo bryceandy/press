@@ -12,14 +12,14 @@ abstract class DriverContract
      *
      * @var array
      */
-    protected array $config;
+    protected $config;
 
     /**
      * The property that will return all posts
      *
      * @var array
      */
-    protected array $posts = [];
+    protected $posts = [];
 
     /**
      * DriverContract constructor.
@@ -56,7 +56,7 @@ abstract class DriverContract
     {
         $this->posts[] = array_merge(
             (new PressFileParser($content))->getData(),
-            ['identifier' => Str::slug($identifier)],
+            ['identifier' => Str::slug($identifier)]
         );
     }
 
