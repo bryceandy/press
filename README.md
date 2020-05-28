@@ -2,11 +2,11 @@
 
 This [Laravel](https://laravel.com) package can be used to publish and update your blogs using markdown files.  
 
-[x] Locate where your markdown files are (i.e local file directory, cloud)  
-[x] Create or update these files 
-[x] Select custom fields for your posts  
-[x] Customize how any extra field can be parsed  
-[x] Choose when to publish or update the posts by scheduling a command  
+✅ Locate where your markdown files are (i.e local file directory, cloud)  
+✅ Create or update these files  
+✅ Select custom fields for your posts  
+✅ Customize how any extra field can be parsed  
+✅ Choose when to publish or update the posts by scheduling a command  
 
 ## Requirements  
 
