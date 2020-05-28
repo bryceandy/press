@@ -4,7 +4,6 @@ namespace Bryceandy\Press;
 
 use Illuminate\Support\Facades\File;
 use Bryceandy\Press\Facades\Press;
-use Illuminate\Support\Facades\Log;
 use ReflectionClass;
 use ReflectionException;
 
@@ -61,12 +60,12 @@ class PressFileParser
     }
 
     protected function processFields()
-    {   Log::info(print_r($this->data)); 
+    {
         foreach ($this->data as $field => $value) {
 
             $class = $this->getFieldClass(ucfirst($field));
 
-            if (! class_exists($class) || ! method_exists($class, 'process'))
+            if (! class_exists($class) && ! method_exists($class, 'process'))
                 $class = 'Bryceandy\\Press\\Fields\\Extra';
 
             $this->data = array_merge(
@@ -74,7 +73,6 @@ class PressFileParser
                 $class::process($field, $value, $this->data)
             );
         }
-        Log::info(print_r($this->data));
     }
 
     /**
