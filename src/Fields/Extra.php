@@ -12,9 +12,11 @@ class Extra extends FieldContract
 
         return [
             // Merge previous saved data
-            'extra' => json_encode(array_merge($extra, [
-                $field => $value,
-            ])),
+            'extra' => json_encode(
+                array_merge($extra, [
+                    $field => $value,
+                ])
+            ),
         ];
     }
 }
