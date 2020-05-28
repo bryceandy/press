@@ -64,7 +64,7 @@ class PressBaseServiceProvider extends ServiceProvider
             Fields\Title::class,
             Fields\Body::class,
             Fields\Date::class,
-            Fields\Description::class,
+            //Fields\Description::class,
             Fields\Extra::class,
         ]);
     }
