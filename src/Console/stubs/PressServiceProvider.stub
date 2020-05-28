@@ -9,7 +9,7 @@ class PressServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->registerFields();
+        Press::fields($this->registerFields());
     }
 
     public function register()
@@ -23,8 +23,8 @@ class PressServiceProvider extends ServiceProvider
      */
     private function registerFields()
     {
-        Press::fields([
+        return [
             //
-        ]);
+        ];
     }
 }

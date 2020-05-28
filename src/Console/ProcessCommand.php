@@ -26,9 +26,7 @@ class ProcessCommand extends Command
         try {
             $posts = Press::driver()->fetchPosts();
 
-            collect($posts)->map( function($post) use ($postRepository) {
-                $postRepository->save($post);
-            });
+            collect($posts)->map( fn($post) => $postRepository->save($post));
 
             $this->info('Posts updated successfully!');
 

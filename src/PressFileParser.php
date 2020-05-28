@@ -9,11 +9,11 @@ use ReflectionException;
 
 class PressFileParser
 {
-    protected $filename;
+    protected string $filename;
 
-    protected $data;
+    protected array $data;
 
-    protected $rawData;
+    protected array $rawData;
 
     public function __construct($filename)
     {

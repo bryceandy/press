@@ -12,7 +12,7 @@ This [Laravel](https://laravel.com) package can be used to publish and update yo
 
 Your project needs to meet the following requirements:  
 
-* PHP version >=7.2   
+* PHP version >=7.4   
 * Laravel version 7 and above
 * ext-json installed  
 

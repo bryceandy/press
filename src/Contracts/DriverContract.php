@@ -12,14 +12,14 @@ abstract class DriverContract
      *
      * @var array
      */
-    protected $config;
+    protected array $config;
 
     /**
      * The property that will return all posts
      *
      * @var array
      */
-    protected $posts = [];
+    protected array $posts = [];
 
     /**
      * DriverContract constructor.

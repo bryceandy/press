@@ -47,9 +47,7 @@ class PressBaseServiceProvider extends ServiceProvider
 
     private function registerFacades()
     {
-        $this->app->singleton('Press', function($app) {
-            return new \Bryceandy\Press\Press();
-        });
+        $this->app->singleton('Press', fn($app) => new \Bryceandy\Press\Press());
     }
     
     private function registerRoutes()
