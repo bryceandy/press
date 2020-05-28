@@ -2,12 +2,13 @@
 
 namespace Bryceandy\Press\Http\Controllers;
 
+use Bryceandy\Press\Post;
 use Illuminate\Routing\Controller;
 
-class TestController extends Controller
+class PostController extends Controller
 {
     public function index()
     {
-        return 'Hey';
+        return response()->json(Post::all());
     }
 }
