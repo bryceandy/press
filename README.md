@@ -1,6 +1,9 @@
 # Press
 
-[![Actions Status](https://github.com/bryceandy/press/workflows/Tests/badge.svg)](https://github.com/bryceandy/press/actions)  
+[![Actions Status](https://github.com/bryceandy/press/workflows/Tests/badge.svg)](https://github.com/bryceandy/press/actions) 
+<a href="https://packagist.org/packages/bryceandy/press"><img src="https://poser.pugx.org/bryceandy/press/d/total.svg" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/bryceandy/press"><img src="https://poser.pugx.org/bryceandy/press/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/bryceandy/press"><img src="https://poser.pugx.org/bryceandy/press/license.svg" alt="License"></a>
 
 This [Laravel](https://laravel.com) package can be used to publish and update your blogs using markdown files.  
 
