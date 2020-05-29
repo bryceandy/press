@@ -151,7 +151,7 @@ php artisan press:process
 
 If you could successfully run the previous command that means your posts are saved in your posts table.
 
-You may use the `Bryceandy\Press\Post` modal to fetch posts.  
+You may use the `Bryceandy\Press\Post` model to fetch posts.  
 
 #### The custom fields  
 
@@ -166,13 +166,14 @@ $birthday = $post->extra('birthday');
 // The field that was only written in the markdown file without a custom class to parse
 $field = $post->extra('field');   
 
+// Other fields  
 $title = $post->title;
 $body = $post->body;  
 ```  
 
 ## Upcoming features  
 
-[] Support for cloud drivers, specifically Amazon S3.  
+🔘 Support for cloud drivers, specifically Amazon S3.  
 
 ## License  
 
