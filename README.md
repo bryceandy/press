@@ -1,5 +1,7 @@
 # Press
 
+[![Actions Status](https://github.com/bryceandy/press/workflows/Tests/badge.svg)](https://github.com/bryceandy/press/actions)  
+
 This [Laravel](https://laravel.com) package can be used to publish and update your blogs using markdown files.  
 
 ✅ Locate where your markdown files are (i.e local file directory, cloud)  
